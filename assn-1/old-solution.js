@@ -81,55 +81,65 @@ function reduce(data, reducer, initialValue) {
     return accumulatedResult;
 }
 
-const VALID_PRODUCTS = ["FIG_JAM", "FIG_JELLY", "SPICY_FIG_JAM", "ORANGE_FIG_JELLY"];
-
-const transactionCounts = reduce(transactions, (transaction, accumulatedResult) => {
-    let isValidProduct = false;
-    for (let p of VALID_PRODUCTS) {
-        if (p === transaction.product) isValidProduct = true;
+//predicate for invalid transactions filter
+function isInvalid(transaction) {
+    if (!transaction.amount) {
+        return true;
+    } 
+    switch (transaction.product) {
+        case "FIG_JAM":
+        case "FIG_JELLY":
+        case "SPICY_FIG_JAM":
+        case "ORANGE_FIG_JELLY":
+            return false;
+            break;
+        default:
+            return true;
     }
-    
-    if (transaction.amount && isValidProduct) {
-        if (transaction.amount < 25) {
-            accumulatedResult.small++;
-        } else if (transaction.amount >= 25 && transaction.amount < 75) {
-            accumulatedResult.medium++;
-        } else if (transaction.amount >= 75) {
-            accumulatedResult.large++;
+}
+
+//predicate for duplicate customers
+function isDuplicate(customerA, customerB) {return customerA.emailAddress === customerB.emailAddress && customerA.id !== customerB.id;}
+
+//predicate for transactions over $200
+function isOver200(transaction) {return transaction.amount > 200;}
+
+//reducer for small, medium, large transactions
+function txnReducerFnGenerator(predicate) {
+    return (transaction, accumulatedResult) => {
+        if (isInvalid(transaction)) {
+            return accumulatedResult;
+        }
+        if (predicate(transaction.amount)) {
+            return ++accumulatedResult;
+        } else {
+            return accumulatedResult;
         }
     }
-    return accumulatedResult;
-}, {small: 0, medium: 0, large: 0});
+}
+const smallTxnReducer = txnReducerFnGenerator(amount => amount < 25);
+const mediumTxnReducer = txnReducerFnGenerator(amount => amount >= 25 && amount < 75);
+const largeTxnReducer = txnReducerFnGenerator(amount => amount >= 75);
 
 //logic to get all the customers who had transactions over $200
-const transactionsOver200 = filter(transactions, transaction => transaction.amount > 200);
-const pairedData = pairIf(customers, transactionsOver200, (customer, transaction) => customer.id === transaction.customerId);
-const uniqueCustomers = reduce(pairedData, (pairedTransaction, uniqueCustomers) => {
-    const transaction = pairedTransaction[1];
-    const customer = pairedTransaction[0];
-    let isValidProduct = false;
-    for (let i of VALID_PRODUCTS) {
-        if (i === transaction.product) isValidProduct = true;
+const transactionsOver200 = filter(transactions, isOver200);
+const pairedData = pairIf(customers, transactionsOver200, (customer, transaction) => {return customer.id === transaction.customerId;});
+function uniqueCustomerReducer(pairedTransaction, uniqueCustomers) {
+    if (uniqueCustomers.includes(pairedTransaction[0]) || isInvalid(pairedTransaction[1])) {
+        return uniqueCustomers;
+    } else {
+        uniqueCustomers.push(pairedTransaction[0]);
+        return uniqueCustomers;
     }
-    if (!uniqueCustomers.includes(customer) && transaction.amount && isValidProduct) {
-        uniqueCustomers.push(customer);
-    }
-    return uniqueCustomers;
-}, []);
+}
+const uniqueCustomers = reduce(pairedData, uniqueCustomerReducer, []);
+const customerNames = map(uniqueCustomers, customer => customer.firstName + " " + customer.lastName);
 
-console.log(`Number of invalid transactions: ${filter(transactions, transaction => {
-    let isValidProduct = false;
-    for (let i of VALID_PRODUCTS) {
-        if (i === transaction.product) {
-            isValidProduct = true;
-        }
-    }
-    return !transaction.amount || !isValidProduct;
-}).length}`);
-console.log(`Number of duplicate customers: ${pairIf(customers, customers, (customerA, customerB) => customerA.emailAddress === customerB.emailAddress && customerA.id !== customerB.id).length / 2}`);
-console.log(`Most recent transaction over $200: $${findLast(transactions, transaction => transaction.amount > 200).amount}`);
-console.log(`Number of small transactions: ${transactionCounts.small}`);
-console.log(`Number of medium transactions: ${transactionCounts.medium}`);
-console.log(`Number of large transactions: ${transactionCounts.large}`);
+console.log(`Number of invalid transactions: ${filter(transactions, isInvalid).length}`);
+console.log(`Number of duplicate customers: ${pairIf(customers, customers, isDuplicate).length / 2}`);
+console.log(`Most recent transaction over $200: $${findLast(transactions, isOver200).amount}`);
+console.log(`Number of small transactions: ${reduce(transactions, smallTxnReducer, 0)}`);
+console.log(`Number of medium transactions: ${reduce(transactions, mediumTxnReducer, 0)}`);
+console.log(`Number of large transactions: ${reduce(transactions, largeTxnReducer, 0)}`);
 console.log("Customers with transactions over $200:", uniqueCustomers);
-console.log("Names of customers with transactions over $200:", map(uniqueCustomers, customer => customer.firstName + " " + customer.lastName));
+console.log("Names of customers with transactions over $200:", customerNames);
