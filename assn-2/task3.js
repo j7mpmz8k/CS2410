@@ -33,6 +33,9 @@ function calculatePayments() {
     if (Number.isNaN(r)) {
         return "Annunl Rate entered is not a number!"
     }
+    if (r < 0) {
+        return "Annual Rate cannot be negative!"
+    }
     // get number of months (n)
     if (!years.value) {
         years.value = YEARS;
@@ -41,12 +44,15 @@ function calculatePayments() {
     if (n <= 0) {
         return "Number of Years must be greater than zero!"
     }
+    if (n < 1 && n > 0) {
+        n = 1;
+    }
     if (Number.isNaN(n)) {
         return "Number of Years entered is not a number!"
     }
 
     let M;
-    if (Math.abs(r) < .000000001) {
+    if (Math.abs(r) < 1e-8) {
         M = P / n;
     } else {
         M = P * ((r * ((1 + r) ** n)) / (((1 + r) ** n) - 1));
@@ -54,6 +60,9 @@ function calculatePayments() {
     M = Math.round(M * 100) / 100;// rounds to nearest hundredth
     if (Number.isNaN(M)) {
         return false;
+    }
+    if (M > P) {
+        M = P;
     }
     return `Monthly Payment: $${M}`;
 }
