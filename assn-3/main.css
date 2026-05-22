@@ -1,0 +1,52 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+form {
+    padding: 1%;
+}
+.headers {
+    font-size: xx-large;
+    border: solid thick black;
+}
+.sub-headers {
+    font-size: x-large;
+}
+.fulfillment {
+    width: 65%;
+    vertical-align: top;
+}
+.placement {
+    border: solid thick black;
+    width: 15%;
+    vertical-align: top;
+}
+.completed {
+    border: solid thick black;
+    background-color: lightgray;
+    width: 20%;
+    vertical-align: top;
+}
+.green {
+    border: solid thick black;
+    background-color: greenyellow;
+    width: 33.3%;
+}
+.yellow {
+    border: solid thick black;
+    background-color: yellow;
+    width: 33.3%;
+}
+
+.red {
+    border: solid thick black;
+    background-color: red;
+    color: white;
+    width: 33.3%;
+}
+.cards {
+    margin-top: 1%;
+    border: solid  black;
+    padding: 1%;
+    vertical-align: top;
+}
