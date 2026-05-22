@@ -21,9 +21,11 @@ form {
     width: 15%;
     vertical-align: top;
 }
-.completed {
+.grey {
     border: solid thick black;
     background-color: lightgray;
+}
+.completed {
     width: 20%;
     vertical-align: top;
 }
@@ -48,5 +50,4 @@ form {
     margin-top: 1%;
     border: solid  black;
     padding: 1%;
-    vertical-align: top;
 }

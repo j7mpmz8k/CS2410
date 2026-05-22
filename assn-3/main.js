@@ -27,6 +27,7 @@ form.addEventListener("submit", e => {
 
     const newOrder = new Order(size, bread, main, cheese, drink, toppings, sides);
     const orderCard = newOrder.getHTML();
-    let newCards = document.getElementById("completed");
+    let newCards = document.getElementById("new");
     newCards.appendChild(orderCard);
+    form.reset();
 });
