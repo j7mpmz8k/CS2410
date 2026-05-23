@@ -35,8 +35,8 @@ class Order {
                 if (!this._completed) {
                     hurryCol.appendChild(orderCard);
                 }
-            }, 3000); // 3 seconds
-        }, 5000); // 5 seconds
+            }, 30000); // 30 seconds
+        }, 60000); // 60 seconds
 
         orderCard.addEventListener("dblclick", () => {
             this._completed = true;
@@ -72,7 +72,7 @@ class Order {
                     Order ${this._orderNum}  |  ${this.getTime()}  |  ${summary}
                 </div>
             `);
-            completedCard.className = "cards";
+            completedCard.className = "completedCard";
 
             //replaces pending card with summerized completed card 
             orderCard.remove();

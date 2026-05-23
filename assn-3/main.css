@@ -1,12 +1,9 @@
 table {
     width: 100%;
-    border-collapse: collapse;
 }
 form {
     border: solid thick black;
-    border-top: none;
-    width: 95%; 
-    margin-left: -2.5px; 
+    width: 94%; 
     padding: 1%;
 }
 th.headers {
@@ -60,10 +57,22 @@ td.placement {
 }
 .cards {
     margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
     border: solid  black;
     padding: 1%;
+    background-color: white;
+    color: black;
 }
 
 #new, #waiting, #hurry {
     vertical-align: top;
+}
+
+.completedCard {
+    margin-top: 1%;
+    border: solid black;
+    padding: 1%;
+    background-color: lightgray;
 }
