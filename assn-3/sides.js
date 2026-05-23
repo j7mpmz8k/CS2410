@@ -7,7 +7,7 @@ class Sides {
         if (!this.sides.length) {
             return null;
         } else {
-            let sidesDIVs = this._elementFromHTML(`
+            const sidesDIVs = elementFromHTML(`
                 <div>
                     <div>
                         <strong>Sides:</strong>
@@ -15,7 +15,7 @@ class Sides {
                 </div>
             `);
             for (const side of this.sides) {
-                 sidesDIVs.appendChild(this._elementFromHTML(`
+                sidesDIVs.appendChild(elementFromHTML(`
                     <div>
                         --${side}
                     </div>
@@ -23,10 +23,5 @@ class Sides {
             }
             return sidesDIVs;
         }
-    }
-    _elementFromHTML = (htmlString) => {
-        const wrapper = document.createElement("div");
-        wrapper.innerHTML = htmlString;
-        return wrapper.firstElementChild;
     }
 }

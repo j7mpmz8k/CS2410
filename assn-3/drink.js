@@ -4,10 +4,10 @@ class Drink {
     }
 
     getHTML = () => {
-        if (this.drink == "none") {
-            return null
+        if (this.drink === "none") {
+            return null;
         } else {
-            const drinkDiv = this.elementFromHTML(`
+            const drinkDiv = elementFromHTML(`
                 <div>
                     <div>
                         <strong>Drink:</strong>
@@ -19,10 +19,5 @@ class Drink {
             `);
             return drinkDiv;
         }
-    }
-    elementFromHTML = (htmlString) => {
-        const wrapper = document.createElement("div");
-        wrapper.innerHTML = htmlString;
-        return wrapper.firstElementChild;
     }
 }

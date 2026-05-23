@@ -3,23 +3,35 @@ table {
     border-collapse: collapse;
 }
 form {
+    border: solid thick black;
+    border-top: none;
+    width: 95%; 
+    margin-left: -2.5px; 
     padding: 1%;
 }
-.headers {
+th.headers {
     font-size: xx-large;
     border: solid thick black;
+    vertical-align: middle;
 }
-.sub-headers {
+th.sub-headers {
+    border: solid thick black;
     font-size: x-large;
+    vertical-align: middle;
 }
 .fulfillment {
     width: 65%;
     vertical-align: top;
 }
 .placement {
-    border: solid thick black;
     width: 15%;
     vertical-align: top;
+}
+th.placement {
+    padding: 1%;
+}
+td.placement {
+    padding: 0;
 }
 .grey {
     border: solid thick black;
@@ -50,4 +62,8 @@ form {
     margin-top: 1%;
     border: solid  black;
     padding: 1%;
+}
+
+#new, #waiting, #hurry {
+    vertical-align: top;
 }

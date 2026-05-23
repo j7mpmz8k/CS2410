@@ -8,7 +8,7 @@ class Sandwich {
     }
 
     getHTML = () => {
-        let sandwhichDIVs = this._elementFromHTML(`
+        let sandwhichDIVs = elementFromHTML(`
             <div>
                 <div>
                     <strong>${this.size} Sandwich:</strong>
@@ -25,18 +25,12 @@ class Sandwich {
             </div>
         `);
         for (const topping of this.toppings) {
-            sandwhichDIVs.appendChild(this._elementFromHTML(`
+            sandwhichDIVs.appendChild(elementFromHTML(`
                 <div>
                     --${topping}
                 </div>
             `));
         }
         return sandwhichDIVs;
-    }
-    
-    _elementFromHTML = (htmlString) => {
-        const wrapper = document.createElement("div");
-        wrapper.innerHTML = htmlString;
-        return wrapper.firstElementChild;
     }
 }

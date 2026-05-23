@@ -1,3 +1,10 @@
+let orderNum = 0;
+function elementFromHTML(htmlString) {
+    const wrapper = document.createElement("div");
+    wrapper.innerHTML = htmlString.trim();
+    return wrapper.firstElementChild;
+}
+
 const form = document.getElementById("orderForm");
 
 form.addEventListener("submit", e => {
@@ -25,7 +32,7 @@ form.addEventListener("submit", e => {
         }
     }
 
-    const newOrder = new Order(size, bread, main, cheese, drink, toppings, sides);
+    const newOrder = new Order(size, bread, main, cheese, drink, toppings, sides, ++orderNum);
     const orderCard = newOrder.getHTML();
     let newCards = document.getElementById("new");
     newCards.appendChild(orderCard);
