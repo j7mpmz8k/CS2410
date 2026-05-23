@@ -12,18 +12,23 @@
 </head>
 
 <body>
+  <div>Check out the customer name feature I added to the order card</div>
   <table>
     <thead>
       <tr>
-        <th class="placement sub-headers">Order Placement</th>
+        <th id="orderPlacementHeader" class="placement sub-headers">Place Order #1</th>
         <th class="fulfillment headers">Pending Status</th>
-        <th class="completed sub-headers grey">Completed</th>
+        <th class="completed sub-headers">Completed</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td class="placement">
           <form id="orderForm">
+            <h3>Customer Name</h3>
+            <div>
+              <label><input type="text" name="customerName" required placeholder="Enter name" /></label>
+            </div>
             <h3>Select Size</h3>
             <div>
               <label><input type="radio" name="size" value="6in" required /> 6-inch</label>

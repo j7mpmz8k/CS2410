@@ -14,6 +14,7 @@ form.addEventListener("submit", e => {
     const bread = e.target.bread.value;
     const main = e.target.main.value;    
     const cheese = e.target.cheese.value;
+    const customerName = e.target.customerName.value;
 
     //optional...if no selection, they will have falsy value (ie. empty array or empty string)
     const drink = e.target.drink.value;
@@ -32,7 +33,8 @@ form.addEventListener("submit", e => {
         }
     }
 
-    const newOrder = new Order(size, bread, main, cheese, drink, toppings, sides, ++orderNum);
+    const newOrder = new Order(size, bread, main, cheese, drink, toppings, sides, ++orderNum, customerName);
+    document.getElementById("orderPlacementHeader").innerHTML = `Place Order #${orderNum + 1}`;
     const orderCard = newOrder.getHTML();
     let newCards = document.getElementById("new");
     newCards.appendChild(orderCard);

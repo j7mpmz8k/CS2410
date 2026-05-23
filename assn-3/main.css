@@ -5,11 +5,13 @@ form {
     border: solid thick black;
     width: 94%; 
     padding: 1%;
+    background-color: blanchedalmond;
 }
 th.headers {
     font-size: xx-large;
     border: solid thick black;
     vertical-align: middle;
+    background-color: orange;
 }
 th.sub-headers {
     border: solid thick black;
@@ -26,13 +28,13 @@ th.sub-headers {
 }
 th.placement {
     padding: 1%;
+    background-color: orange;
 }
 td.placement {
     padding: 0;
 }
-.grey {
-    border: solid thick black;
-    background-color: lightgray;
+th.completed {
+    background-color: orange;
 }
 .completed {
     width: 20%;
@@ -75,4 +77,36 @@ td.placement {
     border: solid black;
     padding: 1%;
     background-color: lightgray;
+}
+
+body {
+    background-color: rgb(255, 218, 169);
+    margin: 1%;
+    padding: 1%;
+}
+
+h3 {
+    font-size: large;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+label {
+    font-size: medium;
+}
+
+input {
+    margin-right: 1%;
+}
+
+button {
+    font-size: medium;
+    background-color: lightgray;
+    border: solid black;
+    padding: 1%;
+    margin-top: 1%;
+}
+
+strong {
+    font-size: medium;
 }

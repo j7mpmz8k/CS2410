@@ -1,5 +1,5 @@
 class Order {
-    constructor(size, bread, main, cheese, drink, toppings, sides, orderNum) {
+    constructor(size, bread, main, cheese, drink, toppings, sides, orderNum, customerName) {
         this._sandwhichObj = new Sandwich(size, bread, main, cheese, toppings);
         this._drinkObj = new Drink(drink);
         this._sidesObj = new Sides(sides);
@@ -7,11 +7,17 @@ class Order {
         this._now = Date.now();
         // Save the order number to the instance
         this._orderNum = orderNum;
+        this._customerName = customerName;
     }
 
     getHTML = () => {
         let orderCard = document.createElement("div");
         orderCard.className = "cards";
+
+        let customerDiv = document.createElement("div");
+        customerDiv.innerHTML = `<strong>Customer:</strong> ${this._customerName}`;
+        orderCard.appendChild(customerDiv);
+
         orderCard.appendChild(this._sandwhichObj.getHTML());
 
         const drinkHTML = this._drinkObj.getHTML();
@@ -40,10 +46,11 @@ class Order {
 
         orderCard.addEventListener("dblclick", () => {
             this._completed = true;
+            this._completedTime = Date.now();
 
             const completedCol = document.getElementById("completed");
 
-            const itemsOrdered = ["Sandwich"];
+            const itemsOrdered = [`${this._sandwhichObj.size}-Sandwich`];
             // adds the drink if ordered to the summary
             if (this._drinkObj.drink !== "none") {
                 itemsOrdered.push(this._drinkObj.drink);
@@ -69,7 +76,7 @@ class Order {
 
             const completedCard = elementFromHTML(`
                 <div>
-                    Order ${this._orderNum}  |  ${this.getTime()}  |  ${summary}
+                    Order ${this._orderNum} (${this._customerName})  |  ${this.getTime()}  |  ${summary}
                 </div>
             `);
             completedCard.className = "completedCard";
