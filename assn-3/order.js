@@ -76,7 +76,7 @@ class Order {
 
             //replaces pending card with summerized completed card 
             orderCard.remove();
-            completedCol.appendChild(completedCard);
+            completedCol.prepend(completedCard);
         });
         return orderCard;
     }
