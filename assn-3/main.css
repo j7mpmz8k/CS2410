@@ -3,7 +3,7 @@ table {
 }
 form {
     border: solid thick black;
-    width: 94%; 
+    width: 95%; 
     padding: 1%;
     background-color: blanchedalmond;
 }
@@ -19,11 +19,11 @@ th.sub-headers {
     vertical-align: middle;
 }
 .fulfillment {
-    width: 65%;
+    width: 50%;
     vertical-align: top;
 }
 .placement {
-    width: 15%;
+    width: 30%;
     vertical-align: top;
 }
 th.placement {
@@ -109,4 +109,9 @@ button {
 
 strong {
     font-size: medium;
+}
+
+.form-col {
+    vertical-align: top;
+    width: 50%;
 }

@@ -34,14 +34,14 @@ class Order {
             const waitingCol = document.getElementById("waiting");
             if (!this._completed) {
                 waitingCol.appendChild(orderCard);
+                
+                setTimeout(() => {
+                    const hurryCol = document.getElementById("hurry");
+                    if (!this._completed) {
+                        hurryCol.appendChild(orderCard);
+                    }
+                }, 30000); // 30 seconds
             }
-            
-            setTimeout(() => {
-                const hurryCol = document.getElementById("hurry");
-                if (!this._completed) {
-                    hurryCol.appendChild(orderCard);
-                }
-            }, 30000); // 30 seconds
         }, 60000); // 60 seconds
 
         orderCard.addEventListener("dblclick", () => {
