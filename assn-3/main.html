@@ -13,12 +13,13 @@
 
 <body>
   <div>Check out the customer name feature I added to the order card</div>
+  <!-- Main Table: Placement, Pending Status, and Completed columns -->
   <table>
     <thead>
       <tr>
-        <th id="orderPlacementHeader" class="placement sub-headers">Place Order #1</th>
-        <th class="fulfillment headers">Pending Status</th>
-        <th class="completed sub-headers">Completed</th>
+        <th id="orderPlacementHeader" class="placement small-headers">Place Order #1</th>
+        <th class="fulfillment large-headers">Pending Status</th>
+        <th class="completed small-headers">Completed</th>
       </tr>
     </thead>
     <tbody>
@@ -29,6 +30,7 @@
             <div>
               <label><input type="text" name="customerName" required placeholder="Enter name" /></label>
             </div>
+            <!-- Options Table: Two-column menu options -->
             <table>
               <tr>
                 <td class="form-col">
@@ -138,7 +140,7 @@
                     <label><input type="radio" name="drink" value="tea" />Tea</label>
                   </div>
 
-                  <h3>Side</h3>
+                  <h3>Sides</h3>
                   <div>
                     <label><input type="checkbox" name="sides" value="chips" />Chips</label>
                   </div>
@@ -157,12 +159,13 @@
           </form>
         </td>
         <td class="fulfillment">
+          <!-- Status Table: Pending status columns (New, Waiting, Hurry Up) -->
           <table>
             <thead>
               <tr>
-                <th class="green sub-headers">New</th>
-                <th class="yellow sub-headers">Waiting</th>
-                <th class="red sub-headers">Hurry Up</th>
+                <th class="green small-headers">New</th>
+                <th class="yellow small-headers">Waiting</th>
+                <th class="red small-headers">Hurry Up</th>
               </tr>
             </thead>
             <tbody>

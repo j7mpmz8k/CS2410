@@ -31,6 +31,7 @@ class Order {
         }
 
         setTimeout(() => {
+            //moves the cards from green, to yellow, to red on a timer unless they are completed
             const waitingCol = document.getElementById("waiting");
             if (!this._completed) {
                 waitingCol.appendChild(orderCard);
@@ -45,11 +46,13 @@ class Order {
         }, 60000); // 60 seconds
 
         orderCard.addEventListener("dblclick", () => {
+            //marked completed if double clicked, a card with a shorter summary is created in its place
             this._completed = true;
             this._completedTime = Date.now();
 
             const completedCol = document.getElementById("completed");
-
+            
+            //first builds a list of everything ordered to know where punctuation needs to go
             const itemsOrdered = [`${this._sandwhichObj.size}-Sandwich`];
             // adds the drink if ordered to the summary
             if (this._drinkObj.drink !== "none") {
@@ -81,8 +84,9 @@ class Order {
             `);
             completedCard.className = "completedCard";
 
-            //replaces pending card with summerized completed card 
+            //removes completed order from pending
             orderCard.remove();
+            //ads a summarized order to 
             completedCol.prepend(completedCard);
         });
         return orderCard;
