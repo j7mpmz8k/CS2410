@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div id="header-bar-wrapper">
+        <div id="menu-bar-wrapper">
+            <div id="menu-bar-container">
+                <div id="menu-title">Resume Maker</div>
+                <div id="menu-buttons">
+                    <button id="btn-profile" class="tab-button active">Profile</button>
+                    <button id="btn-education" class="tab-button">Education</button>
+                    <button id="btn-work" class="tab-button">Work Experience</button>
+                    <button id="btn-skills" class="tab-button">Skills</button>
+                </div>
+            </div>
+        </div>
+        <div id="forms-wrapper">
+            <div id="forms-container">
+                <div id="form-profile">
+                    <div class="form-header">Edit Profile</div>
+                    <div class="form-body">
+                        <div class="form-column">
+                            <div class="input-group">
+                                <span>Image URL: </span><input id="input-profile-img" value="https://wallpapers.com/images/hd/bruce-lee-900-x-925-picture-rslhreh1o1fln8p3.jpg" />
+                            </div>
+                            <div class="input-group">
+                                <span>Name: </span><input id="input-profile-name" value="Bruce Lee" />
+                            </div>
+                            <div class="input-group">
+                                <span>Phone: </span><input id="input-profile-phone" value="555-ONE-KICK" />
+                            </div>
+                            <div class="input-group">
+                                <span>Email: </span><input id="input-profile-email" value="bruce@jeetkunedo.com" />
+                            </div>
+                        </div>
+                        <div class="form-column">
+                            <div class="input-group">
+                                <span>Street: </span><input id="input-profile-street" value="1 Dragon Way" />
+                            </div>
+                            <div class="input-group">
+                                <span>City: </span><input id="input-profile-city" value="Kowloon" />
+                            </div>
+                            <div class="input-group">
+                                <span>State: </span><input id="input-profile-state" value="Hong Kong" />
+                            </div>
+                            <div class="input-group">
+                                <span>Zipcode: </span><input id="input-profile-zip" value="1940" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form id="form-education" hidden>
+                    <div class="form-header">
+                        Add Education
+                    </div>
+                    <div class="form-body grid-layout">
+                        <div class="input-group">
+                            <span>Logo URL: </span><input id="input-edu-logo" />
+                        </div>
+                        <div class="input-group">
+                            <span>School Name: </span><input id="input-edu-name" />
+                        </div>
+                        <div class="input-group">
+                            <span>Graduation Date: </span><input id="input-edu-date" />
+                        </div>
+                        <div class="input-group">
+                            <span>Degree: </span><input id="input-edu-degree" />
+                        </div>
+                        <div class="input-group">
+                            <span>Field of Study: </span><input id="input-edu-field" />
+                        </div>
+                    </div>
+                    <div class="submit-button">
+                        <button type="submit">Add School</button>
+                    </div>
+                </form>
+                <form id="form-work" hidden>
+                    <div class="form-header">
+                        Add Work Experience
+                    </div>
+                    <div class="form-body">
+                        <div class="form-column">
+                            <div class="input-group">
+                                <span>Company Name: </span><input id="input-work-company" />
+                            </div>
+                            <div class="input-group">
+                                <span>Job Title: </span><input id="input-work-title" />
+                            </div>
+                            <div class="input-group">
+                                <span>Start Date: </span><input id="input-work-start" />
+                            </div>
+                            <div class="input-group">
+                                <span>End Date: </span><input id="input-work-end" placeholder="blank if current job" />
+                            </div>
+                        </div>
+                        <div class="form-column">
+                            <div class="input-group">
+                                <textarea name="desc-input" id="desc-input"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit-button">
+                        <button type="submit">Add Work</button>
+                    </div>
+                </form>
+                <form id="form-skills" hidden>
+                    <div class="form-header">Add Skill</div>
+                    <div class="form-body">
+                        <div class="input-group">
+                            <span>Skill: </span><input id="input-skill-name" />
+                            <select id="input-skill-level">
+                                <option>Novice</option>
+                                <option>Proficient</option>
+                                <option>Expert</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="submit-button">
+                        <button type="submit">Add Skill</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="resume-paper">
+        <div id="resume-profile-section">
+            <img id="resume-img" src="https://wallpapers.com/images/hd/bruce-lee-900-x-925-picture-rslhreh1o1fln8p3.jpg" alt="Chad Mano" class="profile-pic" />
+            <div id="profile-details">
+                <div id="resume-name" class="resume-fullname">Bruce Lee</div>
+                <div id="resume-street">1 Dragon Way</div>
+                <div class="resume-address">
+                    <span id="resume-city">Kowloon</span>,
+                    <span id="resume-state">Hong Kong</span>
+                    <span id="resume-zip">1940</span>
+                </div>
+                <div id="resume-email">bruce@jeetkunedo.com</div>
+                <div id="resume-phone">555-ONE-KICK</div>
+            </div>
+        </div>
+        <div class="section-title">Education</div>
+        <div id="resume-education-list">
+            <div class="education-card">
+                <img src="https://schools.graniteschools.org/eisenhowerjr/wp-content/uploads/sites/93/2020/07/cropped-logo-eisenhower-jr.png"
+                    alt="Eisenhower Jr. High logo"/>
+                <div class="edu-name">Eisenhower Jr. High</div>
+                <div class="edu-info">May 1961</div>
+                <div class="edu-info">None</div>
+                <div class="edu-info">General</div>
+            </div>
+            <div class="education-card">
+                <img src="https://i.pinimg.com/474x/4e/bb/3e/4ebb3eee9c96c3a759ce953541aa5e77.jpg" alt="Granite High logo"/>
+                <div class="edu-name">Granite High</div>
+                <div class="edu-info">May 1968</div>
+                <div class="edu-info">Diploma</div>
+                <div class="edu-info">General</div>
+            </div>
+            <div class="education-card">
+                <img src="https://www.usu.edu/brand/standards/logos/images/athletics-marks/UState.png" alt="Utah State University logo"/>
+                <div class="edu-name">Utah State University</div>
+                <div class="edu-info">April 1984</div>
+                <div class="edu-info">B.S.</div>
+                <div class="edu-info">Computer Science</div>
+            </div>
+        </div>
+        <div class="section-title">Work Experience</div>
+        <div id="resume-work-list">
+            <div class="work-entry">
+                <div class="work-header">
+                    <div class="work-company">Walmart</div>
+                    <div class="work-date">May 1993 - June 1993</div>
+                </div>
+                <div class="work-title">Greeter</div>
+                <div class="work-desc">As a Walmart greeter, I welcomed customers with a friendly smile and
+                    ensured they had a great first impression of the store. I assisted with basic inquiries, checked
+                    receipts when needed, and directed shoppers to the right departments. My role required strong
+                    customer service skills, attentiveness, and the ability to stand for long periods while creating
+                    a welcoming atmosphere.</div>
+            </div>
+            <div class="work-entry">
+                <div class="work-header">
+                    <div class="work-company">Salt Lake City Airport</div>
+                    <div class="work-date">March 1999 - July 2003</div>
+                </div>
+                <div class="work-title">Customer Service Representative</div>
+                <div class="work-desc">As a customer service representative at the Salt Lake City
+                    International Airport, I welcomed travelers, answered questions, and provided assistance with
+                    directions, flight information, and baggage inquiries. I worked in a fast-paced environment,
+                    ensuring passengers had a smooth experience while navigating the terminal. My role required
+                    excellent communication skills, patience, and the ability to handle stressful situations with
+                    professionalism.</div>
+            </div>
+            <div class="work-entry">
+                <div class="work-header">
+                    <div class="work-company">Logan City Public Works</div>
+                    <div class="work-date">August 203 - present</div>
+                </div>
+                <div class="work-title">Site Attendant</div>
+                <div class="work-desc">As a site attendant at the Logan City dump, I guided customers through
+                    waste disposal procedures, ensured proper sorting of recyclable materials, and maintained a safe
+                    and organized environment. I operated heavy equipment, monitored incoming loads for hazardous
+                    materials, and assisted residents with unloading waste. My role required physical endurance,
+                    attention to safety regulations, and strong customer service skills to provide clear
+                    instructions and assistance.</div>
+            </div>
+        </div>
+        <div class="section-title">Skills</div>
+        <div id="resume-skills-list">
+            <div class="skill-card">
+                <span>Cooking(Expert)</span>
+            </div>
+            <div class="skill-card">
+                <span>Public Speaking(Proficient)</span>
+            </div>
+            <div class="skill-card">
+                <span>Photography(Novice)</span>
+            </div>
+            <div class="skill-card">
+                <span>Gardening(Proficient)</span>
+            </div>
+            <div class="skill-card">
+                <span>Carpentry(Novice)</span>
+            </div>
+            <div class="skill-card">
+                <span>Swimming(Expert)</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

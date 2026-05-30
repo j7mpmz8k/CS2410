@@ -1,0 +1,237 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #223843;
+}
+
+#header-bar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    #menu-bar-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background-color: #223843;
+        padding: 0.8em 1.2em;
+
+        #menu-bar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            #menu-title {
+                color: #EFF1F3;
+            }
+
+            #menu-buttons {
+                .tab-button {
+                    color: #EFF1F3;
+                    background-color: rgb(255, 255, 255, 0.1);
+                }
+
+                .active {
+                    background-color: #DBD3D8;
+                    color: #223843;
+                }
+            }
+        }
+    }
+
+    #forms-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background-color: #D8B4A0;
+        padding: 0.8em 1.2em;
+        #forms-container {
+            .form-header {
+                justify-self: center;
+            }
+
+            .form-body {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: .1em 1em;
+            }
+
+            .grid-layout {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                width: 42em;
+                .input-group {
+                    display: flex;
+                    width: 43%;
+                    justify-content: flex-end;
+                }
+            }
+
+            .form-column {
+                display: flex;
+                flex-direction: column;
+                gap: 0.2em;
+                align-items: flex-end;
+            }
+
+            .input-group {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                span {
+                    text-align: right;
+                    margin-right: 0.5em;
+                }
+
+                input {
+                    width: 12em;
+                }
+            }
+
+            .submit-button {
+                justify-self: center;
+
+                button {
+                    background-color: #D77A61;
+                    color: white;
+                    margin-top: 1.2em;
+                }
+            }
+        }
+    }
+}
+
+#resume-paper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-top: 15em;
+    background-color: #EFF1F3;
+    border-radius: 2em;
+    padding: 2.5em;
+
+    #resume-profile-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 2em;
+        width: 100%;
+
+        .profile-pic {
+            width: 8em;
+            height: 8em;
+            border-radius: 50%;
+        }
+
+        #profile-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3em;
+
+            .resume-fullname {
+            }
+        }
+    }
+
+    .section-title {
+        margin-top: 1.8em;
+        margin-bottom: 0.8em;
+        font-size: 1.5rem;
+        color: #223843;
+    }
+
+    #resume-education-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .education-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 28%;
+            height: 12em;
+            background-color: #DBD3D8;
+            padding: .2em;
+            border-radius: 1em;
+
+            img {
+                width: 4em;
+                height: 4em;
+            }
+
+            .edu-name {
+                font-weight: bold;
+                margin: 0.4em 0 0.2em 0;
+            }
+            .edu-info {
+                font-size: 0.9em;
+                color: #4A4A4A;
+            }
+        }
+    }
+
+    #resume-work-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8em;
+        width: 100%;
+
+        .work-entry {
+            background-color: #DBD3D8;
+            padding: 1.2em;
+            border-radius: 0.8em;
+
+            .work-header {
+                display: flex;
+                justify-content: space-between;
+
+                .work-company {
+                    font-weight: bold;
+                }
+
+                .work-date {
+                    font-size: 0.9em;
+                    color: #666;
+                }
+            }
+
+            .work-title {
+                font-style: italic;
+                margin: 0.2em 0 0.4em 0;
+            }
+
+            .work-desc {
+                font-size: 0.95em;
+                color: #4A4A4A;
+                line-height: 1.4;
+            }
+        }
+    }
+
+    #resume-skills-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8em;
+        width: 100%;
+
+        .skill-card {
+            background-color: #D77A61;
+            padding: 1em;
+            border-radius: 0.5em;
+        }
+    }
+}
