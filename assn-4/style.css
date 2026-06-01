@@ -149,21 +149,21 @@ body {
         color: #223843;
     }
 
-    #resume-education-list {
+    #education-cards {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: center;
+        gap: 1.5em;
+        width: 100%;
 
         .education-card {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            width: 28%;
-            height: 12em;
             background-color: #DBD3D8;
-            padding: .2em;
+            padding: 1.2em;
             border-radius: 1em;
 
             img {
@@ -182,7 +182,7 @@ body {
         }
     }
 
-    #resume-work-list {
+    #experience-cards {
         display: flex;
         flex-direction: column;
         gap: 0.8em;
@@ -220,13 +220,13 @@ body {
         }
     }
 
-    #resume-skills-list {
+    #skills-badges {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         gap: 0.8em;
-        width: 100%;
+        width: 70%;
 
         .skill-card {
             background-color: #D77A61;
