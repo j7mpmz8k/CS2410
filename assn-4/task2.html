@@ -22,7 +22,9 @@
         <div id="forms-wrapper">
             <div id="forms-container">
                 <div id="form-profile">
-                    <div class="form-header">Edit Profile</div>
+                    <div class="form-header-row">
+                        <div class="form-header">Edit Profile</div>
+                    </div>
                     <div class="form-body">
                         <div class="form-column">
                             <div class="input-group">
@@ -55,8 +57,9 @@
                     </div>
                 </div>
                 <form id="form-education" hidden>
-                    <div class="form-header">
-                        Add Education
+                    <div class="form-header-row">
+                        <div class="form-header">Add Education</div>
+                        <button type="submit" class="submit-button">Submit</button>
                     </div>
                     <div class="form-body grid-layout">
                         <div class="input-group">
@@ -75,13 +78,11 @@
                             <span>Field of Study: </span><input id="input-edu-field" />
                         </div>
                     </div>
-                    <div class="submit-button">
-                        <button type="submit">Add School</button>
-                    </div>
                 </form>
                 <form id="form-work" hidden>
-                    <div class="form-header">
-                        Add Work Experience
+                    <div class="form-header-row">
+                        <div class="form-header">Add Work Experience</div>
+                        <button type="submit" class="submit-button">Submit</button>
                     </div>
                     <div class="form-body">
                         <div class="form-column">
@@ -99,17 +100,17 @@
                             </div>
                         </div>
                         <div class="form-column">
-                            <div class="input-group">
+                            <div class="input-group text-area-wrapper">
                                 <textarea name="desc-input" id="desc-input"></textarea>
                             </div>
                         </div>
                     </div>
-                    <div class="submit-button">
-                        <button type="submit">Add Work</button>
-                    </div>
                 </form>
                 <form id="form-skills" hidden>
-                    <div class="form-header">Add Skill</div>
+                    <div class="form-header-row">
+                        <div class="form-header">Add Skills</div>
+                        <button type="submit" class="submit-button">Submit</button>
+                    </div>
                     <div class="form-body">
                         <div class="input-group">
                             <span>Skill: </span><input id="input-skill-name" />
@@ -119,9 +120,6 @@
                                 <option>Expert</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="submit-button">
-                        <button type="submit">Add Skill</button>
                     </div>
                 </form>
             </div>

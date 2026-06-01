@@ -1,9 +1,18 @@
+:root {
+    --peach: #D77A61;
+    --tan: #D8B4A0;
+    --off-white: #DBD3D8;
+    --white: #EFF1F3;
+    --dark: #223843;
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color: #223843;
+    background-color: var(--dark);
+    font-family: "Comic Sans MS", "Chalkboard SE", cursive;
 }
 
 #header-bar-wrapper {
@@ -18,7 +27,7 @@ body {
         display: flex;
         justify-content: center;
         width: 100%;
-        background-color: #223843;
+        background-color: var(--dark);
         padding: 0.8em 1.2em;
 
         #menu-bar-container {
@@ -26,18 +35,24 @@ body {
             flex-direction: column;
             align-items: center;
             #menu-title {
-                color: #EFF1F3;
+                color: var(--white);
+                font-size: 1.6rem;
+                font-weight: bold;
             }
 
             #menu-buttons {
                 .tab-button {
-                    color: #EFF1F3;
+                    color: var(--tan);
                     background-color: rgb(255, 255, 255, 0.1);
+                    font-size: 0.95rem;
+                    border: none;
+                    border-radius: 0.4em;
+                    padding: 0.3em 0.6em;
                 }
 
                 .active {
-                    background-color: #DBD3D8;
-                    color: #223843;
+                    background-color: var(--tan);
+                    color: var(--dark);
                 }
             }
         }
@@ -47,11 +62,24 @@ body {
         display: flex;
         justify-content: center;
         width: 100%;
-        background-color: #D8B4A0;
+        background-color: var(--tan);
         padding: 0.8em 1.2em;
         #forms-container {
+            .form-header-row {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                margin-bottom: 0.8em;
+            }
+
+            #form-profile .form-header-row {
+                justify-content: center;
+            }
+
             .form-header {
-                justify-self: center;
+                font-weight: bold;
+                color: var(--peach);
+                font-size: 1.2rem;
             }
 
             .form-body {
@@ -90,19 +118,37 @@ body {
                     margin-right: 0.5em;
                 }
 
+                input, select, textarea {
+                    border: 1px solid var(--peach);
+                    border-radius: 0.4em;
+                    padding: 0.3em;
+                }
+
                 input {
                     width: 12em;
                 }
+
+                select {
+                    width: 8em;
+                }
+            }
+
+            textarea {
+                width: 18em;
+                height: 93%;
+            }
+
+            .text-area-wrapper {
+                height: 100%;
             }
 
             .submit-button {
-                justify-self: center;
-
-                button {
-                    background-color: #D77A61;
-                    color: white;
-                    margin-top: 1.2em;
-                }
+                background-color: var(--peach);
+                color: white;
+                border: none;
+                border-radius: 0.4em;
+                padding: 0.4em 0.8em;
+                cursor: pointer;
             }
         }
     }
@@ -114,9 +160,10 @@ body {
     align-items: center;
     width: 80%;
     margin-top: 15em;
-    background-color: #EFF1F3;
+    background-color: var(--white);
     border-radius: 2em;
     padding: 2.5em;
+    color: var(--dark);
 
     #resume-profile-section {
         display: flex;
@@ -138,6 +185,8 @@ body {
             gap: 0.3em;
 
             .resume-fullname {
+                font-weight: bold;
+                font-size: 1.8rem;
             }
         }
     }
@@ -146,7 +195,8 @@ body {
         margin-top: 1.8em;
         margin-bottom: 0.8em;
         font-size: 1.5rem;
-        color: #223843;
+        color: var(--dark);
+        font-style: italic;
     }
 
     #education-cards {
@@ -162,12 +212,13 @@ body {
             flex-direction: column;
             align-items: center;
             text-align: center;
-            background-color: #DBD3D8;
+            background-color: var(--off-white);
             padding: 1.2em;
             border-radius: 1em;
+            width: 14em;
 
             img {
-                width: 4em;
+                width: auto;
                 height: 4em;
             }
 
@@ -177,7 +228,6 @@ body {
             }
             .edu-info {
                 font-size: 0.9em;
-                color: #4A4A4A;
             }
         }
     }
@@ -189,7 +239,7 @@ body {
         width: 100%;
 
         .work-entry {
-            background-color: #DBD3D8;
+            background-color: var(--off-white);
             padding: 1.2em;
             border-radius: 0.8em;
 
@@ -203,7 +253,7 @@ body {
 
                 .work-date {
                     font-size: 0.9em;
-                    color: #666;
+                    color: var(--peach);
                 }
             }
 
@@ -214,7 +264,6 @@ body {
 
             .work-desc {
                 font-size: 0.95em;
-                color: #4A4A4A;
                 line-height: 1.4;
             }
         }
@@ -226,12 +275,15 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         gap: 0.8em;
-        width: 70%;
+        width: 90%;
 
         .skill-card {
-            background-color: #D77A61;
+            background-color: var(--peach);
+            color: var(--white);
             padding: 1em;
             border-radius: 0.5em;
+            width: 18%;
+            text-align: center;
         }
     }
 }

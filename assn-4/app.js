@@ -1,3 +1,5 @@
+//tab switching from menu buttons
+//profile tab
 let buttonPofileTab = document.getElementById("btn-profile");
 let formProfileDiv = document.getElementById("form-profile");
 buttonPofileTab.addEventListener("click", () => {
@@ -10,6 +12,7 @@ buttonPofileTab.addEventListener("click", () => {
     formWorkDiv.hidden = true;
     formSkillsDiv.hidden = true;
 });
+//education tab
 let buttonEducationTab = document.getElementById("btn-education");
 let formEducationDiv = document.getElementById("form-education");
 buttonEducationTab.addEventListener("click", () => {
@@ -22,6 +25,7 @@ buttonEducationTab.addEventListener("click", () => {
     formWorkDiv.hidden = true;
     formSkillsDiv.hidden = true;
 });
+//work tab
 let buttonWorkTab = document.getElementById("btn-work");
 let formWorkDiv = document.getElementById("form-work");
 buttonWorkTab.addEventListener("click", () => {
@@ -34,6 +38,7 @@ buttonWorkTab.addEventListener("click", () => {
     formWorkDiv.hidden = false;
     formSkillsDiv.hidden = true;
 });
+//skills tab
 let buttonSkillsTab = document.getElementById("btn-skills");
 let formSkillsDiv = document.getElementById("form-skills");
 buttonSkillsTab.addEventListener("click", () => {
@@ -47,64 +52,56 @@ buttonSkillsTab.addEventListener("click", () => {
     formSkillsDiv.hidden = false;
 });
 
-// Profile Image updates
+// profile inputs update resume in real time
 let inputProfileUrl = document.getElementById("input-profile-url");
 let resumeImg = document.getElementById("resume-img");
 inputProfileUrl.addEventListener("input", () => {
     resumeImg.src = inputProfileUrl.value;
 });
-
-// Text inputs updating the resume via innerHTML
 let inputProfileName = document.getElementById("input-profile-name");
 let resumeName = document.getElementById("resume-name");
 inputProfileName.addEventListener("input", () => {
     resumeName.innerHTML = inputProfileName.value;
 });
-
 let inputProfilePhone = document.getElementById("input-profile-phone");
 let resumePhone = document.getElementById("resume-phone");
 inputProfilePhone.addEventListener("input", () => {
     resumePhone.innerHTML = inputProfilePhone.value;
 });
-
 let inputProfileEmail = document.getElementById("input-profile-email");
 let resumeEmail = document.getElementById("resume-email");
 inputProfileEmail.addEventListener("input", () => {
     resumeEmail.innerHTML = inputProfileEmail.value;
 });
-
 let inputProfileStreet = document.getElementById("input-profile-street");
 let resumeStreet = document.getElementById("resume-street");
 inputProfileStreet.addEventListener("input", () => {
     resumeStreet.innerHTML = inputProfileStreet.value;
 });
-
 let inputProfileCity = document.getElementById("input-profile-city");
 let resumeCity = document.getElementById("resume-city");
 inputProfileCity.addEventListener("input", () => {
     resumeCity.innerHTML = inputProfileCity.value;
 });
-
 let inputProfileState = document.getElementById("input-profile-state");
 let resumeState = document.getElementById("resume-state");
 inputProfileState.addEventListener("input", () => {
     resumeState.innerHTML = inputProfileState.value;
 });
-
 let inputProfileZip = document.getElementById("input-profile-zip");
 let resumeZip = document.getElementById("resume-zip");
 inputProfileZip.addEventListener("input", () => {
     resumeZip.innerHTML = inputProfileZip.value;
 });
 
-// Helper function to parse an HTML string into a DOM element
+//helper to make new html element from form submission
 function elementFromHTML(htmlString) {
     const wrapper = document.createElement("div");
     wrapper.innerHTML = htmlString.trim();
     return wrapper.firstElementChild;
 }
 
-// Education form submission handler
+// Education form submission
 let formEducation = document.getElementById("form-education");
 let inputEduLogo = document.getElementById("input-edu-logo");
 let inputEduName = document.getElementById("input-edu-name");
@@ -126,6 +123,7 @@ formEducation.addEventListener("submit", (e) => {
         </div>
     `);
 
+    //allows deletion from clicking element
     newCard.addEventListener("click", () => {
         newCard.remove();
     });
@@ -135,7 +133,7 @@ formEducation.addEventListener("submit", (e) => {
     formEducation.reset();
 });
 
-// Work experience form submission handler
+// Work experience form submission
 let formWork = document.getElementById("form-work");
 let inputWorkCompany = document.getElementById("input-work-company");
 let inputWorkTitle = document.getElementById("input-work-title");
@@ -162,7 +160,7 @@ formWork.addEventListener("submit", (e) => {
             <div class="work-desc">${descInput.value}</div>
         </div>
     `);
-
+    //allows deletion from clicking element
     newWork.addEventListener("click", () => {
         newWork.remove();
     });
@@ -172,7 +170,7 @@ formWork.addEventListener("submit", (e) => {
     formWork.reset();
 });
 
-// Skills form submission handler
+// Skills form submission
 let formSkills = document.getElementById("form-skills");
 let inputSkillName = document.getElementById("input-skill-name");
 let inputSkillLevel = document.getElementById("input-skill-level");
@@ -187,6 +185,7 @@ formSkills.addEventListener("submit", (e) => {
         </div>
     `);
 
+    //allows deletion from clicking element
     newSkill.addEventListener("click", () => {
         newSkill.remove();
     });
@@ -196,7 +195,7 @@ formSkills.addEventListener("submit", (e) => {
     formSkills.reset();
 });
 
-// Attach deletion listeners to pre-existing resume cards using a for...of loop
+// allows deletion of pre-existing data
 let existingCards = document.querySelectorAll(".education-card, .work-entry, .skill-card");
 for (let card of existingCards) {
     card.addEventListener("click", () => {
