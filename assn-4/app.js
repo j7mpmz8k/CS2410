@@ -103,95 +103,81 @@ function elementFromHTML(htmlString) {
 
 // Education form submission
 let formEducation = document.getElementById("form-education");
-let inputEduLogo = document.getElementById("input-edu-logo");
-let inputEduName = document.getElementById("input-edu-name");
-let inputEduDate = document.getElementById("input-edu-date");
-let inputEduDegree = document.getElementById("input-edu-degree");
-let inputEduField = document.getElementById("input-edu-field");
 let educationCards = document.getElementById("education-cards");
 
 formEducation.addEventListener("submit", (e) => {
     e.preventDefault();
-
+    const logo = e.target.logo.value;
+    const school = e.target.school.value;
+    const date = e.target.date.value;
+    const degree = e.target.degree.value;
+    const field = e.target.field.value;
     const newCard = elementFromHTML(`
         <div class="education-card">
-            <img src="${inputEduLogo.value}" alt="${inputEduName.value} logo" />
-            <div class="edu-name">${inputEduName.value}</div>
-            <div class="edu-info">${inputEduDate.value}</div>
-            <div class="edu-info">${inputEduDegree.value}</div>
-            <div class="edu-info">${inputEduField.value}</div>
+            <img src="${logo}" alt="${school} logo" />
+            <div class="edu-name">${school}</div>
+            <div class="edu-info">${date}</div>
+            <div class="edu-info">${degree}</div>
+            <div class="edu-info">${field}</div>
         </div>
     `);
-
     //allows deletion from clicking element
     newCard.addEventListener("click", () => {
         newCard.remove();
     });
-
     educationCards.appendChild(newCard);
-
     formEducation.reset();
 });
 
 // Work experience form submission
 let formWork = document.getElementById("form-work");
-let inputWorkCompany = document.getElementById("input-work-company");
-let inputWorkTitle = document.getElementById("input-work-title");
-let inputWorkStart = document.getElementById("input-work-start");
-let inputWorkEnd = document.getElementById("input-work-end");
-let descInput = document.getElementById("desc-input");
 let experienceCards = document.getElementById("experience-cards");
 
 formWork.addEventListener("submit", (e) => {
     e.preventDefault();
-
-    let endDate = inputWorkEnd.value.trim();
-    if (endDate === "") {
-        endDate = "present";
+    const company = e.target.company.value;
+    const title = e.target.title.value;
+    const start = e.target.start.value;
+    let end = e.target.end.value.trim();
+    const desc = e.target.desc.value;
+    if (end === "") {
+        end = "present";
     }
-
     const newWork = elementFromHTML(`
         <div class="work-entry">
             <div class="work-header">
-                <div class="work-company">${inputWorkCompany.value}</div>
-                <div class="work-date">${inputWorkStart.value} - ${endDate}</div>
+                <div class="work-company">${company}</div>
+                <div class="work-date">${start} - ${end}</div>
             </div>
-            <div class="work-title">${inputWorkTitle.value}</div>
-            <div class="work-desc">${descInput.value}</div>
+            <div class="work-title">${title}</div>
+            <div class="work-desc">${desc}</div>
         </div>
     `);
     //allows deletion from clicking element
     newWork.addEventListener("click", () => {
         newWork.remove();
     });
-
     experienceCards.appendChild(newWork);
-
     formWork.reset();
 });
 
 // Skills form submission
 let formSkills = document.getElementById("form-skills");
-let inputSkillName = document.getElementById("input-skill-name");
-let inputSkillLevel = document.getElementById("input-skill-level");
 let skillBadges = document.getElementById("skills-badges");
-
 formSkills.addEventListener("submit", (e) => {
     e.preventDefault();
-
+    const skill = e.target.skill.value;
+    const level = e.target.level.value;
     const newSkill = elementFromHTML(`
         <div class="skill-card">
-            <span>${inputSkillName.value}(${inputSkillLevel.value})</span>
+            <span>${skill}(${level})</span>
         </div>
     `);
-
     //allows deletion from clicking element
     newSkill.addEventListener("click", () => {
         newSkill.remove();
     });
-
     skillBadges.appendChild(newSkill);
-
     formSkills.reset();
 });
 
