@@ -16,8 +16,8 @@ function displayImages (images) {
     for (const img of images) {
         const card = elementFromHTML(`
             <div class="card">
-                <a href="image.html?img=${img.url}">
-                    <img class="gallery-image" src="${img.url}" alt="${img.category}-img">
+                <a href="image.html?img=${img.url}&category=${img.category}&date=${img.dateAdded}">
+                    <img class="gallery-image" src="${img.url}" alt="${img.category}">
                 </a>
                 <p>Category: ${img.category}</p>
                 <p>Added: ${img.dateAdded}</p>

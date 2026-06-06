@@ -11,22 +11,15 @@ const filename = "favs.txt";
 let favoritedImages = [];
 let currentImg = null;
 
-// gets direct wallhaven image url
-const imgUrl = window.location.search.split("img=")[1];
+// gets img data from url
+const imgUrl = window.location.search.split("&category=")[0].split("img=")[1];
+const imgCategory = window.location.search.split("&category=")[1].split("&date=")[0];
+const imgDate = window.location.search.split("&date=")[1].split("%20").join(" ");
 
 async function init() {
-    favoritedImages = await loadFavorites();
-    //finds Img obj from favs.txt based on matching url
-    for (const img of favoritedImages) {
-        if (img.url === imgUrl) {
-            currentImg = img;
-            break;
-        }
-    }
-
-    singleImage.src = currentImg.url;
-    imageCategory.innerText = currentImg.category;
-    imageDate.innerText = currentImg.dateAdded;
+    singleImage.src = imgUrl;
+    imageCategory.innerText = imgCategory;
+    imageDate.innerText = imgDate;
 }
 
 // back to gallery button
@@ -36,6 +29,7 @@ backBtn.addEventListener("click", () => {
 
 // remove favorite button
 unfavoriteBtn.addEventListener("click", async () => {
+    favoritedImages = await loadFavorites();
     favoritedImages = favoritedImages.filter(img => img.url !== imgUrl);
     await updateGallery();
     // back to the gallery
