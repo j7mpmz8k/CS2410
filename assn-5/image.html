@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"><!-- lets me use emoji's -->
+    <title>Favorite Favorites - Single Image</title>
+    <link rel="stylesheet" href="image.css">
+    <script src="image.js" defer></script>
+</head>
+<body data-theme="light">
+    <div id="navbar">
+        <div id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+        </div>
+        <div id="theme-selector">
+            <span>Theme: </span>
+            <input class="theme-radio" type="radio" name="theme-radio" value="light" checked />Light
+            <input class="theme-radio" type="radio" name="theme-radio" value="dark" />Dark Mode
+            <input class="theme-radio" type="radio" name="theme-radio" value="blue" />Blue Mode
+        </div>
+    </div>
+    <div id="main-content">
+        <h1>Single Image View</h1>
+        <div id="single-image-container">
+            <img id="single-image" src="" alt="Favorite Image">
+        </div>
+        <div id="image-details">
+            <p>Category: <span id="image-category"></span></p>
+            <p>Date Added: <span id="image-date"></span></p>
+        </div>
+        <div id="actions">
+            <button id="back-btn">Back to Gallery</button>
+            <button id="unfavorite-btn">Remove Favorite</button>
+        </div>
+    </div>
+</body>
+</html>

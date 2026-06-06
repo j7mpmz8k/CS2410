@@ -1,15 +1,44 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Demo</title>
-    <script src="demo.js" defer></script>
+    <meta charset="UTF-8">
+    <title>Favorite Favorites - Home</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js" defer></script>
 </head>
-<body>
-    <div>
-        <input id="input-text" type="text" /><button id="submit-btn">Submit</button>
+<body data-theme="light">
+    <div id="navbar">
+        <div id="page-links">
+            <span class="active-link">Home</span>
+            <a href="gallery.html">Gallery</a>
+        </div>
+        <div id="theme-selector">
+            <span>Theme: </span>
+            <input class="theme-radio" type="radio" name="theme-radio" value="light" checked />Light
+            <input class="theme-radio" type="radio" name="theme-radio" value="dark" />Dark Mode
+            <input class="theme-radio" type="radio" name="theme-radio" value="blue" />Blue Mode
+        </div>
     </div>
-    <div>
-        <button id="update-btn">Update</button>
-        <div id="output"></div>
+    <div id="main-content">
+        <h1>Image Selection</h1>
+        <div id="categories">
+            <span>Category: </span>
+            <input class="category-radios" type="radio" name="category-radio" value="nature" checked />Nature
+            <input class="category-radios" type="radio" name="category-radio" value="space" />Space
+            <input class="category-radios" type="radio" name="category-radio" value="anime" />Anime
+        </div>
+        <div id="image-container">
+            <img id="main-image" src="" alt="Random Selection">
+        </div>
+        <div id="api-info">
+            <p>API: <span id="api-url">N/A</span></p>
+            <p>Image URL: <span id="image-url">N/A</span></p>
+        </div>
+        <div id="actions">
+            <button id="next-btn">Next Image</button> 
+            <button id="fav-btn">Add favorite</button>
+            <button id="unfav-btn" hidden>Favorite! <span>❤️</span></button>
+        </div>
     </div>
 </body>
 </html>

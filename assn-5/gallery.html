@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Favorite Favorites - Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+    <script src="gallery.js" defer></script>
+</head>
+<body data-theme="light">
+    <div id="navbar">
+        <div id="nav-links">
+            <a href="index.html">Home</a>
+            <span class="active-link">Gallery</span>
+        </div>
+        <div id="theme-selector">
+            <span>Theme: </span>
+            <input class="theme-radio" type="radio" name="theme-radio" value="light" checked />Light
+            <input class="theme-radio" type="radio" name="theme-radio" value="dark" />Dark Mode
+            <input class="theme-radio" type="radio" name="theme-radio" value="blue" />Blue Mode
+        </div>
+    </div>
+    
+    <div id="main-content">
+        <h1>Your Favorites Gallery</h1>
+        <div id="categories">
+            <span>Filter by Category: </span>
+            <input class="filter-radio" type="radio" name="filter-radio" value="all" checked />All
+            <input class="filter-radio" type="radio" name="filter-radio" value="nature" />Nature
+            <input class="filter-radio" type="radio" name="filter-radio" value="space" />Space
+            <input class="filter-radio" type="radio" name="filter-radio" value="anime" />Anime
+        </div>
+        
+        <div id="gallery-container">
+            <!-- Image cards will go here -->
+        </div>
+    </div>
+</body>
+</html>

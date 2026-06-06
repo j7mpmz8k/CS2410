@@ -1,1 +1,1 @@
-{"message":"hello"}
+[{"category":"nature","url":"https://w.wallhaven.cc/full/4l/wallhaven-4le5k2.jpg","dateAdded":"Sat Jun 06 2026"},{"category":"nature","url":"https://w.wallhaven.cc/full/q6/wallhaven-q6qkv7.jpg","dateAdded":"Sat Jun 06 2026","isFavorite":true}]
