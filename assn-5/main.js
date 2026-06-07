@@ -55,7 +55,7 @@ async function showNextImg(category) {
     try {
         currentImg = await getNextImg(category);
         imgElement.src = currentImg.url;
-        apiUrlElement.innerText = `https://wallhaven.cc/api/v1/search?q=${category}&sorting=random`;
+        apiUrlElement.innerText = `https://corsproxy.io/?https://wallhaven.cc/api/v1/search?q=${category}&sorting=random`;
         imageUrlElement.innerText = currentImg.url;
         if (isFavorite(currentImg)) {
             favBtn.hidden = true;

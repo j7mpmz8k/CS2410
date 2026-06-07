@@ -2,12 +2,15 @@
 body[data-theme="light"] {
     --bg-color: #f8f9fa;
     --text-color: #212529;
-    --nav-bg: #ffffff;
+    --nav-bg: #eaebec;
     --nav-border: #e9ecef;
-    --button-bg: #007bff;
-    --button-hover: #0056b3;
+    --main-accent: #007bff;
+    --button-bg: #007bff90;
+    --back-button-bg: #007bff3c;
+    --button-hover: #0057b347;
     --button-text: #ffffff;
-    --font-family: system-ui, -apple-system, sans-serif;
+    --font-family: "Comic Neue", "Comic Sans MS", cursive, system-ui, -apple-system, sans-serif;
+    --img-border: #f8f9fa;
 }
 
 body[data-theme="dark"] {
@@ -15,10 +18,13 @@ body[data-theme="dark"] {
     --text-color: #f8f9fa;
     --nav-bg: #1e1e1e;
     --nav-border: #2d2d2d;
+    --main-accent: #bb86fc;
     --button-bg: #bb86fc;
+    --back-button-bg: #bb86fc36;
     --button-hover: #9965db;
     --button-text: #121212;
     --font-family: 'Courier New', Courier, monospace;
+    --img-border: #121212;
 }
 
 body[data-theme="neon"] {
@@ -26,8 +32,130 @@ body[data-theme="neon"] {
     --text-color: #00ffff;
     --nav-bg: #161824;
     --nav-border: #ff007f;
+    --main-accent: #ff007f;
     --button-bg: #ff007f;
-    --button-hover: #e0006c;
+    --back-button-bg: #ff00804a;
+    --button-hover: #c2025f;
     --button-text: #ffffff;
     --font-family: 'Century Gothic', sans-serif;
+    --img-border: #ff007f;
+}
+
+body {
+    color: var(--text-color);
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-family);
+    .theme-radio, .category-radios, .filter-radio {
+        display: none;
+    }
+    background-color: var(--bg-color);
+}
+
+#navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--nav-bg);
+    padding: 1em 2em;
+    border-top: .2em solid var(--nav-border);
+    border-bottom: .2em solid var(--nav-border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    #nav-links {
+        display: flex;
+        gap: 1.5em;
+        font-size: x-large;
+        a:hover {
+            color: var(--main-accent);
+            font-style: italic;
+        }
+    }
+    #theme-selector {
+        display: flex;
+        align-items: center;
+        label {
+            cursor: pointer;
+            margin-left: 1em;
+        }
+        label:has(input:checked) {
+            color: var(--main-accent); 
+            font-weight: bold;
+        }
+        label:hover {
+            font-weight: bold;
+        }
+    }
+}
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+
+    #single-image-container {
+        width: 60%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        
+        #single-image {
+            max-width: 100%;
+            max-height: 100em;
+            width: auto;
+            height: auto;
+            margin: 1em;
+            border: solid var(--img-border);
+            border-radius: 2em;
+        }
+    }
+
+    #image-details {
+        font-size: x-large;
+        margin-top: 1em;
+        text-align: center;
+        p {
+            margin: 0.5em 0;
+            font-weight: bold;
+        }
+        span {
+            color: var(--main-accent);
+        }
+    }
+
+    #actions {
+        margin-top: 1.5em;
+        display: flex;
+        gap: 1em;
+        
+        button {
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: .25em;
+            border: solid .1em var(--main-accent);
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            padding: .4em 1.2em;
+
+            &#back-btn {
+                background-color: var(--back-button-bg);
+                color: var(--main-accent);
+                &:hover {
+                    background-color: var(--button-hover);
+                    color: var(--button-text);
+                }
+            }
+        }
+        button:hover {
+            background-color: var(--button-hover);
+        }
+    }
 }

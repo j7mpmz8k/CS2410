@@ -2,13 +2,13 @@
 body[data-theme="light"] {
     --bg-color: #f8f9fa;
     --text-color: #212529;
-    --nav-bg: #ffffff;
+    --nav-bg: #eaebec;
     --nav-border: #e9ecef;
-    --button-bg: #007bff;
-    --button-hover: #0056b3;
-    --card-hover: #ffe7cb;
+    --main-accent: #007bff;
+    --button-bg: #007bff90;
+    --button-hover: #0057b347;
     --button-text: #ffffff;
-    --font-family: system-ui, -apple-system, sans-serif;
+    --font-family: "Comic Neue", "Comic Sans MS", cursive, system-ui, -apple-system, sans-serif;
 }
 
 body[data-theme="dark"] {
@@ -16,6 +16,7 @@ body[data-theme="dark"] {
     --text-color: #f8f9fa;
     --nav-bg: #1e1e1e;
     --nav-border: #2d2d2d;
+    --main-accent: #bb86fc;
     --button-bg: #bb86fc;
     --button-hover: #9965db;
     --button-text: #121212;
@@ -27,8 +28,146 @@ body[data-theme="neon"] {
     --text-color: #00ffff;
     --nav-bg: #161824;
     --nav-border: #ff007f;
+    --main-accent: #ff007f;
     --button-bg: #ff007f;
     --button-hover: #e0006c;
     --button-text: #ffffff;
     --font-family: 'Century Gothic', sans-serif;
+}
+
+body {
+    color: var(--text-color);
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-family);
+    .theme-radio, .category-radios, .filter-radio {
+        display: none;
+    }
+    background-color: var(--bg-color);
+}
+
+#navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--nav-bg);
+    padding: 1em 2em;
+    border-top: .2em solid var(--nav-border);
+    border-bottom: .2em solid var(--nav-border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    #nav-links {
+        display: flex;
+        gap: 1.5em;
+        font-size: x-large;
+        .active-link {
+            border-bottom: .25em solid var(--main-accent);
+            cursor: pointer;
+        }
+        a:hover {
+            color: var(--main-accent);
+            font-style: italic;
+        }
+    }
+    #theme-selector {
+        display: flex;
+        align-items: center;
+        label {
+            cursor: pointer;
+            margin-left: 1em;
+        }
+        label:has(input:checked) {
+            color: var(--button-bg); 
+            font-weight: bold;
+        }
+        label:hover {
+            font-weight: bold;
+        }
+    }
+}
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+    
+    label {
+        cursor: pointer;
+        margin-left: 1em;
+        border-radius: .25em;
+        border: solid .1em;
+        padding: .2em;
+        font-weight: bold;
+    }
+    label:has(input:checked) {
+        background-color: var(--button-bg);
+        font-weight: bold;
+        border: none;
+    }
+    label:hover {
+        background-color: var(--button-hover);
+    }
+
+    #gallery-container {
+        margin-top: 2em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5em;
+        width: 100%;
+
+        .card {
+            background-color: var(--nav-bg);
+            border: .1em solid var(--nav-border);
+            border-radius: 1.5em;
+            padding: 1em;
+            width: 15em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+            a {
+                width: 100%;
+                display: block;
+            }
+
+            .gallery-image {
+                width: 100%;
+                height: 10em;
+                object-fit: cover;
+                border-radius: 1em;
+            }
+
+            p {
+                margin: 0.5em 0 0 0;
+                font-weight: bold;
+                font-size: 0.95em;
+                text-align: center;
+            }
+
+            button.remove-btn {
+                cursor: pointer;
+                font-family: inherit;
+                font-weight: bold;
+                font-size: 0.8rem;
+                border-radius: .25em;
+                border: solid .1em var(--main-accent);
+                background-color: var(--button-bg);
+                color: var(--button-text);
+                padding: .25em .8em;
+                margin-top: 1em;
+            }
+
+            button.remove-btn:hover {
+                background-color: var(--button-hover);
+            }
+        }
+    }
 }
