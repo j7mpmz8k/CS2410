@@ -1,0 +1,34 @@
+/* theme variables */
+body[data-theme="light"] {
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --nav-bg: #ffffff;
+    --nav-border: #e9ecef;
+    --button-bg: #007bff;
+    --button-hover: #0056b3;
+    --card-hover: #ffe7cb;
+    --button-text: #ffffff;
+    --font-family: system-ui, -apple-system, sans-serif;
+}
+
+body[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #f8f9fa;
+    --nav-bg: #1e1e1e;
+    --nav-border: #2d2d2d;
+    --button-bg: #bb86fc;
+    --button-hover: #9965db;
+    --button-text: #121212;
+    --font-family: 'Courier New', Courier, monospace;
+}
+
+body[data-theme="neon"] {
+    --bg-color: #0d0e15;
+    --text-color: #00ffff;
+    --nav-bg: #161824;
+    --nav-border: #ff007f;
+    --button-bg: #ff007f;
+    --button-hover: #e0006c;
+    --button-text: #ffffff;
+    --font-family: 'Century Gothic', sans-serif;
+}

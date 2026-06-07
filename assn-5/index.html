@@ -5,6 +5,7 @@
     <title>Favorite Favorites - Home</title>
     <link rel="stylesheet" href="main.css">
     <script src="main.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap">
 </head>
 <body data-theme="light">
     <script>
@@ -20,31 +21,30 @@
             <a id="gallery-link" href="gallery.html">Gallery</a>
         </div>
         <div id="theme-selector">
-            <span>Theme: </span>
-            <input class="theme-radio" type="radio" name="theme-radio" value="light" checked />Light
-            <input class="theme-radio" type="radio" name="theme-radio" value="dark" />Dark Mode
-            <input class="theme-radio" type="radio" name="theme-radio" value="neon" />Neon Mode
+            <label><input class="theme-radio" type="radio" name="theme-radio" value="light" checked />Light</label>
+            <label><input class="theme-radio" type="radio" name="theme-radio" value="dark" />Dark Mode</label>
+            <label><input class="theme-radio" type="radio" name="theme-radio" value="neon" />Neon Mode</label>
         </div>
     </div>
     <div id="main-content">
         <h1>Image Selection</h1>
         <div id="categories">
             <span>Category: </span>
-            <input class="category-radios" type="radio" name="category-radio" value="nature" checked />Nature
-            <input class="category-radios" type="radio" name="category-radio" value="space" />Space
-            <input class="category-radios" type="radio" name="category-radio" value="anime" />Anime
+            <label><input class="category-radios" type="radio" name="category-radio" value="nature" checked />Nature</label>
+            <label><input class="category-radios" type="radio" name="category-radio" value="space" />Space</label>
+            <label><input class="category-radios" type="radio" name="category-radio" value="anime" />Anime</label>
         </div>
         <div id="image-container">
             <img id="main-image" src="" alt="Random Selection" referrerpolicy="no-referrer">
-        </div>
-        <div id="api-info">
-            <p>API: <span id="api-url">N/A</span></p>
-            <p>Image URL: <span id="image-url">N/A</span></p>
         </div>
         <div id="actions">
             <button id="next-btn">Next Image</button> 
             <button id="fav-btn">Add favorite</button>
             <button id="unfav-btn" hidden>Favorite! ❤️</button>
+        </div>
+        <div id="api-info">
+            <p>API: <span id="api-url">N/A</span></p>
+            <p>Image URL: <span id="image-url">N/A</span></p>
         </div>
     </div>
 </body>
