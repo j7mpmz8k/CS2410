@@ -6,6 +6,8 @@ const imgElement = document.getElementById("main-image");
 const apiUrlElement = document.getElementById("api-url");
 const imageUrlElement = document.getElementById("image-url");
 const catagoriesContainer = document.getElementById("categories");
+const themeSelector = document.getElementById("theme-selector");
+const galleryLink = document.getElementById("gallery-link");
 
 const url = "http://localhost:8000/";
 const filename = "favs.txt";
@@ -28,6 +30,23 @@ class Img {
 }
 
 async function init() {
+    // check for theme in url and apply it
+    const themeParts = window.location.search.split("theme=");
+    if (themeParts[1]) {
+        const theme = themeParts[1];
+        document.body.dataset.theme = theme;
+        const themeRadios = document.getElementsByClassName("theme-radio");
+        for (const radio of themeRadios) {
+            radio.checked = (radio.value === theme);
+        }
+    } else {
+        document.body.dataset.theme = "light";
+        const themeRadios = document.getElementsByClassName("theme-radio");
+        for (const radio of themeRadios) {
+            radio.checked = (radio.value === "light");
+        }
+    }
+
     favoritedImages = await loadFavorites();
     showNextImg(getCategory());
 }
@@ -86,6 +105,15 @@ unFavBtn.addEventListener("click", () => {
 
 catagoriesContainer.addEventListener("change", () => {
     showNextImg(getCategory());
+});
+
+themeSelector.addEventListener("change", (e) => {
+    document.body.dataset.theme = e.target.value;
+});
+
+galleryLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "gallery.html?theme=" + document.body.dataset.theme;
 });
 
 async function loadFavorites() {

@@ -6,16 +6,23 @@
     <script src="image.js" defer></script>
 </head>
 <body data-theme="light">
+    <script>
+        // prevent flash of unstyled theme
+        const themeParts = window.location.search.split("theme=");
+        if (themeParts[1]) {
+            document.body.dataset.theme = themeParts[1];
+        }
+    </script>
     <div id="navbar">
         <div id="nav-links">
-            <a href="index.html">Home</a>
-            <a href="gallery.html">Gallery</a>
+            <a id="home-link" href="index.html">Home</a>
+            <a id="gallery-link" href="gallery.html">Gallery</a>
         </div>
         <div id="theme-selector">
             <span>Theme: </span>
             <input class="theme-radio" type="radio" name="theme-radio" value="light" checked />Light
             <input class="theme-radio" type="radio" name="theme-radio" value="dark" />Dark Mode
-            <input class="theme-radio" type="radio" name="theme-radio" value="blue" />Blue Mode
+            <input class="theme-radio" type="radio" name="theme-radio" value="neon" />Neon Mode
         </div>
     </div>
     <div id="main-content">

@@ -1,12 +1,31 @@
 // globals
 const gallery = document.getElementById("gallery-container");
 const catagoriesContainer = document.getElementById("categories");
+const themeSelector = document.getElementById("theme-selector");
+const homeLink = document.getElementById("home-link");
 const url = "http://localhost:8000/";
 const filename = "favs.txt";
 
 let images = [];
 
 async function init() {
+    // check for theme in url and apply it
+    const themeParts = window.location.search.split("theme=");
+    if (themeParts[1]) {
+        const theme = themeParts[1];
+        document.body.dataset.theme = theme;
+        const themeRadios = document.getElementsByClassName("theme-radio");
+        for (const radio of themeRadios) {
+            radio.checked = (radio.value === theme);
+        }
+    } else {
+        document.body.dataset.theme = "light";
+        const themeRadios = document.getElementsByClassName("theme-radio");
+        for (const radio of themeRadios) {
+            radio.checked = (radio.value === "light");
+        }
+    }
+
     images = await loadFavorites();
     displayImages(images);
 }
@@ -26,6 +45,10 @@ function displayImages (images) {
         `);
         card.querySelector(".remove-btn").addEventListener("click", () => {
             removeFavorite(img.url);
+        });
+        card.querySelector("a").addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = `image.html?img=${img.url}&category=${img.category}&date=${img.dateAdded}&theme=${document.body.dataset.theme}`;
         });
         gallery.appendChild(card);
     }
@@ -52,6 +75,15 @@ catagoriesContainer.addEventListener("change", () => {
         const filtered = images.filter(img => img.category === category);
         displayImages(filtered);
     }
+});
+
+themeSelector.addEventListener("change", (e) => {
+    document.body.dataset.theme = e.target.value;
+});
+
+homeLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "index.html?theme=" + document.body.dataset.theme;
 });
 
 async function loadFavorites() {
