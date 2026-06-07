@@ -12,9 +12,10 @@ let favoritedImages = [];
 let currentImg = null;
 
 // gets img data from url
-const imgUrl = window.location.search.split("&category=")[0].split("img=")[1];
-const imgCategory = window.location.search.split("&category=")[1].split("&date=")[0];
-const imgDate = window.location.search.split("&date=")[1].split("%20").join(" ");
+const queryArray = window.location.search.split("&");
+const imgUrl = queryArray[0].split("=")[1];
+const imgCategory = queryArray[1].split("=")[1];
+const imgDate = queryArray[2].split("=")[1].split("%20").join(" ");
 
 async function init() {
     singleImage.src = imgUrl;

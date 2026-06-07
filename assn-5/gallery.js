@@ -17,7 +17,7 @@ function displayImages (images) {
         const card = elementFromHTML(`
             <div class="card">
                 <a href="image.html?img=${img.url}&category=${img.category}&date=${img.dateAdded}">
-                    <img class="gallery-image" src="${img.url}" alt="${img.category}">
+                    <img class="gallery-image" src="${img.url}" alt="${img.category}" referrerpolicy="no-referrer">
                 </a>
                 <p>Category: ${img.category}</p>
                 <p>Added: ${img.dateAdded}</p>
